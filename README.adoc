@@ -1,76 +1,295 @@
-= Social-Media-Dipstick
-Jonathan D.A. Jewell <jonathan.jewell@gmail.com>
-:toc: macro
-:icons: font
-:source-highlighter: rouge
-:experimental:
-:url-github: https://github.com/hyperpolymath/Social-Media-Dipstick
-:url-gitlab: https://gitlab.com/hyperpolymath/Social-Media-Dipstick
-:url-bitbucket: https://bitbucket.org/hyperpolymath/Social-Media-Dipstick
-:url-codeberg: https://codeberg.org/hyperpolymath/Social-Media-Dipstick
+= Social Media Ethics Monitor
 
-Social media health check and analysis
+> Automated system to monitor social media platform policies and deliver 6-monthly guidance to NUJ members
 
-image:https://img.shields.io/badge/RSR-Certified-gold[RSR Certified]
-image:https://img.shields.io/badge/License-AGPL%20v3-blue[License]
+[![CI](https://github.com/Hyperpolymath/social-media-dipstick/actions/workflows/ci.yml/badge.svg)](https://github.com/Hyperpolymath/social-media-dipstick/actions/workflows/ci.yml)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-toc::[]
+== 🎯 Project Overview
 
-== Overview
+Replaces manual monitoring (£18k/year) with automated solution (£400/year) while generating potential £30k/year revenue.
 
-Social-Media-Dipstick is part of the link:https://rhodium.sh[Rhodium Standard] (RSR) ecosystem.
+=== Business Case
+- *Cost Savings*: £18k/year → £400/year
+- *Revenue Potential*: £30k/year (training, licensing, API access)
+- *Net Benefit*: £47.6k/year
+- *Time Savings*: Manual hours → <10 min/day human oversight
 
-Domain: *software-development*
+== 🏗️ Architecture
 
-== Installation
+Microservices architecture on Podman:
 
-[source,bash]
-----
-# Clone from GitHub (primary)
-git clone {url-github}
+- *Collector* (Rust): Platform scraping, API monitoring, change detection
+- *Analyzer* (Python): NLP, impact assessment, guidance generation
+- *Dashboard* (Elixir/Phoenix): Real-time monitoring, approval workflows
+- *Publisher* (Node.js): Email delivery, rollback, analytics
 
-# Or from mirrors
-git clone {url-gitlab}
-git clone {url-codeberg}
-----
+=== Data Layer
+- PostgreSQL 15+ with TimescaleDB for time-series data
+- Redis for caching and job queues
 
-== RSR Stack
+=== Infrastructure
+- Podman for container orchestration (Windows Enterprise compatible)
+- GitHub Actions for CI/CD
+- Prometheus + Grafana for monitoring
 
-This project follows RSR conventions:
+== 🚀 Quick Start
 
-* ✅ ReScript for frontend/logic
-* ✅ Deno for JS runtime
-* ✅ WASM for performance-critical code
-* ✅ Rust/OCaml/Haskell for systems/proofs
-* ✅ Guile/Scheme for configuration
-* ❌ No TypeScript
-* ❌ No Go
-* ❌ No npm
+=== Prerequisites
+```bash
+- Podman 4.0+
+- PostgreSQL 15+
+- Rust 1.70+
+- Python 3.11+
+- Elixir 1.15+
+- Node.js 20+
+```
 
-== Mirrors
+=== Installation
 
-[cols="1,2"]
-|===
-| Platform | URL
+```bash
+= Clone repository
+git clone https://github.com/Hyperpolymath/social-media-dipstick.git
+cd social-media-dipstick
 
-| GitHub (primary) | {url-github}
-| GitLab | {url-gitlab}
-| Bitbucket | {url-bitbucket}
-| Codeberg | {url-codeberg}
-|===
+= Setup development environment
+./tools/scripts/setup-dev.sh
 
-== License
+= Copy and configure environment
+cp .env.example .env
+= Edit .env with your credentials
 
-Licensed under AGPL-3.0-or-later OR LicenseRef-Palimpsest-0.5.
+= Start all services
+podman-compose up -d
 
-See link:LICENSE[LICENSE] for details.
+= Run migrations
+./tools/cli/migrate.sh up
 
-== Contributing
+= Access dashboard
+open http://localhost:4000
+```
 
-See link:CONTRIBUTING.adoc[CONTRIBUTING.adoc].
+== 📊 Services
 
-== Metadata
+| Service | Port | Purpose |
+|---------|------|---------|
+| Collector | 3001 | Platform monitoring |
+| Analyzer | 3002 | NLP analysis |
+| Publisher | 3003 | Email delivery |
+| Dashboard | 4000 | Web UI |
+| Prometheus | 9090 | Metrics |
+| Grafana | 3000 | Dashboards |
 
-* Domain: software-development
-* Framework: RSR (Rhodium Standard Repository)
-* Dublin Core: link:.well-known/dc.xml[.well-known/dc.xml]
+== 🛡️ Safety Guardrails (19 Layers)
+
+=== Never Auto-Publish Without Approval
+1. Human approval required
+2. 5-minute grace period
+3. Test group send-first
+4. Auto-rollback on failures
+5. Emergency stop button
+
+=== Monitoring & Alerting (6-10)
+6. Platform change notifications
+7. Service health monitoring
+8. False positive detection
+9. Delivery tracking
+10. Anomaly detection
+
+=== Data Protection (11-15)
+11. Member data encryption
+12. Role-based access control
+13. Complete audit logging
+14. GDPR compliance
+15. Data retention policies
+
+=== Operational Safety (16-19)
+16. Rate limiting
+17. Graceful degradation
+18. Backup systems
+19. Disaster recovery
+
+== 🔧 Development
+
+=== Setup Development Environment
+```bash
+./tools/scripts/setup-dev.sh
+```
+
+=== Start Development Servers
+```bash
+./tools/scripts/dev-start.sh
+```
+
+=== Run Tests
+```bash
+./tools/scripts/test-all.sh
+```
+
+=== View Logs
+```bash
+./tools/scripts/dev-logs.sh [service]
+```
+
+== 📦 Deployment
+
+=== Staging
+```bash
+gh workflow run deploy.yml -f environment=staging
+```
+
+=== Production
+```bash
+gh workflow run deploy.yml -f environment=production
+```
+
+== 🛠️ CLI Tools
+
+=== Database Management
+```bash
+= Run migrations
+./tools/cli/migrate.sh up
+
+= Create new migration
+./tools/cli/migrate.sh create add_field_name
+
+= Check migration status
+./tools/cli/migrate.sh status
+```
+
+=== Backup & Restore
+```bash
+= Create backup
+./tools/cli/backup.sh
+
+= Restore from backup
+./tools/cli/restore.sh backups/nuj_monitor_20250101_120000.sql.gz
+```
+
+=== Publication Management
+```bash
+= Rollback publication (within grace period)
+./tools/cli/rollback.sh <publication-id> "Reason for rollback"
+```
+
+== 📖 Documentation
+
+- [CLAUDE.md](CLAUDE.md) - Project context and requirements
+- [Collector Service](services/collector/README.md) - Platform monitoring
+- [Analyzer Service](services/analyzer/) - NLP analysis
+- [Publisher Service](services/publisher/) - Email delivery
+- [Dashboard Service](services/dashboard/) - Web UI
+- [Database Schema](infrastructure/database/README.md) - Data model
+
+== 🔍 Monitoring
+
+=== Prometheus Metrics
+- Collection success/failure rates
+- Analysis processing times
+- Email delivery statistics
+- System health metrics
+
+=== Grafana Dashboards
+- Platform monitoring status
+- Change detection trends
+- Publication metrics
+- Service health overview
+
+=== Loki Logs
+- Structured JSON logs from all services
+- Centralized log aggregation
+- 90-day retention
+
+== 🧪 Testing
+
+```bash
+= All services
+./tools/scripts/test-all.sh
+
+= Individual services
+cd services/collector && cargo test
+cd services/analyzer && pytest
+cd services/publisher && npm test
+cd services/dashboard && mix test
+```
+
+== 🤝 Contributing
+
+1. Follow existing code style
+2. Write tests for new features
+3. Update documentation
+4. Submit pull requests for review
+
+=== Code Style
+- *Rust*: `cargo fmt`, `cargo clippy`
+- *Python*: Black, isort, mypy
+- *Node.js*: Prettier, ESLint
+- *Elixir*: `mix format`
+
+== 📋 Development Phases
+
+=== ✅ Phase 0: Design Complete
+- Architecture defined
+- Database schema created
+- Service skeletons built
+- CI/CD pipeline configured
+
+=== 🚧 Phase 1: Manual Process (Weeks 1-4)
+- Manual monitoring to demonstrate DM compliance
+- Build process documentation
+- First 6-monthly guidance sent manually
+
+=== 📅 Phase 2: Data Collection (Weeks 5-8)
+- Automated policy change detection
+- Basic dashboard
+- *Budget*: £0
+
+=== 📅 Phase 3: Analysis (Weeks 9-12)
+- NLP integration
+- AI-assisted draft generation
+- *Budget*: £400 (OpenAI API)
+
+=== 📅 Phase 4: Publishing (Weeks 13-16)
+- End-to-end automation
+- Safety guardrails live
+
+=== 📅 Phase 5: Enhancement (Weeks 17-18)
+- Advanced analytics
+- Production optimization
+
+=== 📅 Phase 6: Commercialization (Weeks 19-20)
+- Revenue generation ready
+- API for external unions
+
+== 💰 Revenue Model
+
+=== Training (£10k/year)
+- Social media ethics workshops
+- Platform policy webinars
+
+=== Union Licensing (£15k/year)
+- TUC unions: £5k/year
+- International unions: £10k/year
+
+=== API Access (£5k/year)
+- Platform change webhooks
+- Historical policy data
+
+*Total*: £30k revenue - £400 costs = £29.6k net
+
+== 📞 Support
+
+- *Issues*: [GitHub Issues](https://github.com/Hyperpolymath/social-media-dipstick/issues)
+- *Emergency*: [Emergency contact TBD]
+
+== 📄 License
+
+GPL-3.0 (for union movement benefit)
+
+== 🙏 Acknowledgments
+
+Built to deliver on a democratic motion on social media platform monitoring.
+
+---
+
+*Key Insight*: This system prevents crises rather than responding to them. Comms team approves (5 min/day), technology does everything else (24/7 monitoring, drafting, sending, reporting).
