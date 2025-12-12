@@ -53,3 +53,7 @@ See TS_CONVERSION_NEEDED.md for migration status.
 - Use `docker` command (use `nerdctl` or `podman`)
 - Use Dockerfile (use Containerfile)
 - Use debian/ubuntu base images (use wolfi/alpine)
+
+## ⚠️ MIGRATION REQUIRED
+Python code in this repo must be migrated to Rust or ReScript.
+See `.migration/PYTHON_TO_RUST_RESCRIPT.md`
