@@ -1,142 +1,79 @@
-# NUJ Social Media Ethics Monitor - Git Ignore
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# RSR-compliant .gitignore
 
-# Environment variables
-.env
-.env.local
-.env.*.local
-
-# Service-specific
-services/*/target/
-services/*/node_modules/
-services/*/_build/
-services/*/deps/
-services/*/venv/
-services/*/__pycache__/
-services/*/.pytest_cache/
-services/*/.cache/
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
-infrastructure/database/pgadmin/
-
-# Logs
-*.log
-logs/
-*.log.*
-
-# OS
+# OS & Editor
 .DS_Store
 Thumbs.db
 *.swp
 *.swo
 *~
-
-# IDE
-.vscode/
 .idea/
-*.iml
-.fleet/
+.vscode/
 
-# Build artifacts
-dist/
-build/
-*.pyc
-*.pyo
-*.egg-info/
-.eggs/
+# Build
+/target/
+/_build/
+/build/
+/dist/
+/out/
+
+# Dependencies
+/node_modules/
+/vendor/
+/deps/
+/.elixir_ls/
 
 # Rust
-**/target/
-Cargo.lock
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-.Python
-.venv/
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-pip-log.txt
-pip-delete-this-directory.txt
-.pytest_cache/
-.coverage
-htmlcov/
-.tox/
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Node.js
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-.pnpm-debug.log*
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
+# Cargo.lock  # Keep for binaries
 
 # Elixir
-_build/
-deps/
+/cover/
+/doc/
 *.ez
-*.beam
 erl_crash.dump
-/.elixir_ls/
-.fetch
 
-# Credentials & Secrets
+# Julia
+*.jl.cov
+*.jl.mem
+/Manifest.toml
+
+# ReScript
+/lib/bs/
+/.bsb.lock
+
+# Python (SaltStack only)
+__pycache__/
+*.py[cod]
+.venv/
+
+# Ada/SPARK
+*.ali
+/obj/
+/bin/
+
+# Haskell
+/.stack-work/
+/dist-newstyle/
+
+# Chapel
+*.chpl.tmp.*
+
+# Secrets
+.env
+.env.*
 *.pem
 *.key
-*.crt
-credentials.json
-secrets.json
-platform_credentials.json
+secrets/
 
-# Monitoring data
-infrastructure/monitoring/grafana/data/
-infrastructure/monitoring/prometheus/data/
-infrastructure/monitoring/loki/data/
+# Test/Coverage
+/coverage/
+htmlcov/
 
-# Backups
-infrastructure/monitoring/backup/*.sql
-infrastructure/monitoring/backup/*.sql.gz
-infrastructure/monitoring/backup/*.dump
+# Logs
+*.log
+/logs/
 
-# Testing
-coverage/
-.nyc_output/
-test-results/
-playwright-report/
-test-output/
-
-# Documentation builds
-docs/_build/
-docs/.doctrees/
-
-# Temporary files
-tmp/
-temp/
+# Temp
+/tmp/
 *.tmp
-
-# Cache
-.cache/
-*.cache
-
-# Platform specific
-.podman/
-.docker/
-
-# Editor configs (keep committed)
-!.editorconfig
-
-# Keep examples
-!.env.example
-!config/*.example.*
+*.bak
