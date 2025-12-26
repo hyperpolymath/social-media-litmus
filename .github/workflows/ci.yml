@@ -15,7 +15,7 @@ jobs:
     name: Test Collector Service (Rust)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6.0.1
 
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
@@ -44,7 +44,7 @@ jobs:
     name: Test Analyzer Service (Python)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6.0.1
 
       - name: Setup Python
         uses: actions/setup-python@v6
@@ -78,7 +78,7 @@ jobs:
     name: Test Publisher Service (Node.js)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6.0.1
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -107,7 +107,7 @@ jobs:
     name: Test Dashboard Service (Elixir)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6.0.1
 
       - name: Setup Elixir
         uses: erlef/setup-beam@v1
@@ -145,7 +145,7 @@ jobs:
       matrix:
         service: [collector, analyzer, publisher, dashboard]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6.0.1
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -183,7 +183,7 @@ jobs:
     name: Security Scan
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6.0.1
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
