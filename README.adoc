@@ -1,5 +1,5 @@
 = Social Media Ethics Monitor
-image:https://img.shields.io/badge/License-MPL_2.0-blue.svg[MPL-2.0-or-later,link="https://opensource.org/licenses/MPL-2.0"]
+image:[MPL-2.0-or-later,link="https://opensource.org/licenses/PMPL-1.0-or-later"]
 
 == License & Philosophy
 
@@ -11,7 +11,7 @@ Philosophy: **Palimpsest**. The Palimpsest-MPL (PMPL) text is provided in `licen
 
 > Automated system to monitor social media platform policies and deliver 6-monthly guidance to NUJ members
 
-[![CI](https://github.com/Hyperpolymath/social-media-dipstick/actions/workflows/ci.yml/badge.svg)](https://github.com/Hyperpolymath/social-media-dipstick/actions/workflows/ci.yml)
+[![CI]()](https://github.com/Hyperpolymath/social-media-dipstick/actions/workflows/ci.yml)
 
 == 🎯 Project Overview
 
@@ -306,7 +306,7 @@ cd services/dashboard && mix test
 
 == 📄 License
 
-GPL-3.0 (for union movement benefit)
+PMPL-1.0-or-later
 
 == 🙏 Acknowledgments
 
