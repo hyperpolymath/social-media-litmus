@@ -1,4 +1,4 @@
-= Social Media Ethics Monitor
+= Social Media Litmus Test
 image:[MPL-2.0-or-later,link="https://opensource.org/licenses/PMPL-1.0-or-later"]
 
 == License & Philosophy
