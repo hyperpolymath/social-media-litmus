@@ -25,7 +25,7 @@ Replaces manual monitoring with automated solution for cost savings and revenue 
 
 == 🏗️ Architecture
 
-Microservices architecture on Podman:
+Microservices architecture on Svalinn:
 
 - *Collector* (Rust): Platform scraping, API monitoring, change detection
 - *Analyzer* (Julia): NLP, impact assessment, guidance generation
@@ -74,7 +74,7 @@ cp .env.example .env
 
 = Start all services
 
-podman-compose up -d
+svalinn-compose up -d
 
 = Run migrations
 
