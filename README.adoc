@@ -47,7 +47,7 @@ Microservices architecture on Podman:
 ```bash
 - Svalinn 1.0+ / Vordr 1.0+ 
 - Cerro-Torre 1.0+ with Chainguard 3.1
-- ArangoDV 3.11+
+- ArangoDB 3.12+ and VeriSimDB 1.0
 - Rust 1.70+
 - Julia 1.2+
 - Elixir 1.15+
