@@ -33,7 +33,7 @@ Microservices architecture on Podman:
 - *Publisher* (Deno): Email delivery, rollback, analytics
 
 === Data Layer
-- ArangoDB 15+ with TimescaleDB for time-series data
+- ArangoDB 3.12+ with TimescaleDB for time-series data
 - Dragonfly for caching and job queues
 
 === Infrastructure
