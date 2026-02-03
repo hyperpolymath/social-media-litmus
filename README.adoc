@@ -18,9 +18,9 @@ Philosophy: **Palimpsest**. The Palimpsest-MPL (PMPL) text is provided in `licen
 Replaces manual monitoring with automated solution for cost savings and revenue generation.
 
 === Business Case
-- *Cost Savings*: confidential
-- *Revenue Potential*: confidential (training, licensing, API access)
-- *Net Benefit*: confidential
+- *Cost Savings*: n/s
+- *Revenue Potential*: n/s (training, licensing, API access)
+- *Net Benefit*: n/s
 - *Time Savings*: Manual hours → <10 min/day human oversight
 
 == 🏗️ Architecture
