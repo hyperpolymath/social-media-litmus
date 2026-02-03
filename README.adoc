@@ -280,7 +280,7 @@ cd services/dashboard && mix test
 - Advanced analytics
 - Production optimization
 
-=== 📅 Phase 6: Commercialization (Weeks 19-20)
+=== 📅 Phase 6: Commercialisation (Weeks 19-20)
 - Revenue generation ready
 - API for external unions
 
