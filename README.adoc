@@ -37,7 +37,8 @@ Microservices architecture on Podman:
 - Dragonfly for caching and job queues
 
 === Infrastructure
-- Podman for container orchestration (Windows Enterprise compatible)
+- Svalinn 1.0+ / Vordr 1.0+
+- Cerro-Torre 1.0+ with Chainguard 3.1+ (Windows Enterprise compatible)
 - GitHub Actions for CI/CD
 - Prometheus + Grafana for monitoring
 
