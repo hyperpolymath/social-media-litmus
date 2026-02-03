@@ -9,7 +9,7 @@ Philosophy: **Palimpsest**. The Palimpsest-MPL (PMPL) text is provided in `licen
 // SPDX-License-Identifier: MPL-2.0-or-later
 // SPDX-FileCopyrightText: 2025 Jonathan D.A. Jewell
 
-> Automated system to monitor social media platform policies and deliver 3-monthly guidance to NUJ members
+> Automated system to monitor social media platform policies and deliver 3-monthly guidance to union members
 
 [![CI]()](https://github.com/Hyperpolymath/social-media-dipstick/actions/workflows/ci.yml)
 
@@ -183,7 +183,7 @@ gh workflow run deploy.yml -f environment=production
 
 = Restore from backup
 
-./tools/cli/restore.sh backups/nuj_monitor_20250101_120000.aql.gz
+./tools/cli/restore.sh backups/union_monitor_20250101_120000.aql.gz
 ```
 
 === Publication Management
