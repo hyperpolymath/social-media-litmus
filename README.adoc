@@ -9,18 +9,18 @@ Philosophy: **Palimpsest**. The Palimpsest-MPL (PMPL) text is provided in `licen
 // SPDX-License-Identifier: MPL-2.0-or-later
 // SPDX-FileCopyrightText: 2025 Jonathan D.A. Jewell
 
-> Automated system to monitor social media platform policies and deliver 6-monthly guidance to NUJ members
+> Automated system to monitor social media platform policies and deliver 3-monthly guidance to NUJ members
 
 [![CI]()](https://github.com/Hyperpolymath/social-media-dipstick/actions/workflows/ci.yml)
 
 == 🎯 Project Overview
 
-Replaces manual monitoring (£18k/year) with automated solution (£400/year) while generating potential £30k/year revenue.
+Replaces manual monitoring with automated solution for cost savings and revenue generation.
 
 === Business Case
-- *Cost Savings*: £18k/year → £400/year
-- *Revenue Potential*: £30k/year (training, licensing, API access)
-- *Net Benefit*: £47.6k/year
+- *Cost Savings*: confidential
+- *Revenue Potential*: confidential (training, licensing, API access)
+- *Net Benefit*: confidential
 - *Time Savings*: Manual hours → <10 min/day human oversight
 
 == 🏗️ Architecture
@@ -28,13 +28,13 @@ Replaces manual monitoring (£18k/year) with automated solution (£400/year) whi
 Microservices architecture on Podman:
 
 - *Collector* (Rust): Platform scraping, API monitoring, change detection
-- *Analyzer* (Python): NLP, impact assessment, guidance generation
+- *Analyzer* (Julia): NLP, impact assessment, guidance generation
 - *Dashboard* (Elixir/Phoenix): Real-time monitoring, approval workflows
-- *Publisher* (Node.js): Email delivery, rollback, analytics
+- *Publisher* (Deno): Email delivery, rollback, analytics
 
 === Data Layer
-- PostgreSQL 15+ with TimescaleDB for time-series data
-- Redis for caching and job queues
+- ArangoDB 15+ with TimescaleDB for time-series data
+- Dragonfly for caching and job queues
 
 === Infrastructure
 - Podman for container orchestration (Windows Enterprise compatible)
@@ -45,12 +45,13 @@ Microservices architecture on Podman:
 
 === Prerequisites
 ```bash
-- Podman 4.0+
-- PostgreSQL 15+
+- Svalinn 1.0+ / Vordr 1.0+ 
+- Cerro-Torre 1.0+ with Chainguard 3.1
+- ArangoDV 3.11+
 - Rust 1.70+
-- Python 3.11+
+- Julia 1.2+
 - Elixir 1.15+
-- Node.js 20+
+- Deno 2.2+
 ```
 
 === Installation
@@ -182,7 +183,7 @@ gh workflow run deploy.yml -f environment=production
 
 = Restore from backup
 
-./tools/cli/restore.sh backups/nuj_monitor_20250101_120000.sql.gz
+./tools/cli/restore.sh backups/nuj_monitor_20250101_120000.aql.gz
 ```
 
 === Publication Management
@@ -230,8 +231,8 @@ gh workflow run deploy.yml -f environment=production
 = Individual services
 
 cd services/collector && cargo test
-cd services/analyzer && pytest
-cd services/publisher && npm test
+cd services/analyzer && julia test
+cd services/publisher && deno test
 cd services/dashboard && mix test
 ```
 
@@ -269,7 +270,7 @@ cd services/dashboard && mix test
 === 📅 Phase 3: Analysis (Weeks 9-12)
 - NLP integration
 - AI-assisted draft generation
-- *Budget*: £400 (OpenAI API)
+- *Budget*: confidential (custom API)
 
 === 📅 Phase 4: Publishing (Weeks 13-16)
 - End-to-end automation
@@ -285,19 +286,19 @@ cd services/dashboard && mix test
 
 == 💰 Revenue Model
 
-=== Training (£10k/year)
+=== Training (confidential/year)
 - Social media ethics workshops
 - Platform policy webinars
 
 === Union Licensing (£15k/year)
-- TUC unions: £5k/year
-- International unions: £10k/year
+- TUC unions: confidential/year
+- International unions: confidential/year
 
-=== API Access (£5k/year)
+=== API Access (confidential/year)
 - Platform change webhooks
 - Historical policy data
 
-*Total*: £30k revenue - £400 costs = £29.6k net
+*Total*: confidential revenue - confidential costs = confidential net
 
 == 📞 Support
 
@@ -314,4 +315,4 @@ Built to deliver on a democratic motion on social media platform monitoring.
 
 ---
 
-*Key Insight*: This system prevents crises rather than responding to them. Comms team approves (5 min/day), technology does everything else (24/7 monitoring, drafting, sending, reporting).
+*Key Purpose*: The system prevents crises rather than responding to them. Comms team approves (5 min/day), technology does everything else (24/7 monitoring, drafting, sending, reporting).
