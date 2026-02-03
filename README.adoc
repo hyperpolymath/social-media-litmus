@@ -11,7 +11,7 @@ Philosophy: **Palimpsest**. The Palimpsest-MPL (PMPL) text is provided in `licen
 
 > Automated system to monitor social media platform policies and deliver 3-monthly guidance to union members
 
-[![CI]()](https://github.com/Hyperpolymath/social-media-dipstick/actions/workflows/ci.yml)
+[![CI]()](https://github.com/Hyperpolymath/social-media-litmus/actions/workflows/ci.yml)
 
 == 🎯 Project Overview
 
@@ -59,8 +59,8 @@ Microservices architecture on Podman:
 ```bash
 = Clone repository
 
-git clone https://github.com/Hyperpolymath/social-media-dipstick.git
-cd social-media-dipstick
+git clone https://github.com/Hyperpolymath/social-media-litmus.git
+cd social-media-litmustick
 
 = Setup development environment
 
@@ -245,8 +245,8 @@ cd services/dashboard && mix test
 
 === Code Style
 - *Rust*: `cargo fmt`, `cargo clippy`
-- *Python*: Black, isort, mypy
-- *Node.js*: Prettier, ESLint
+- *Julia*: Black, isort, mypy
+- *Deno*: Prettier, ESLint
 - *Elixir*: `mix format`
 
 == 📋 Development Phases
@@ -286,15 +286,15 @@ cd services/dashboard && mix test
 
 == 💰 Revenue Model
 
-=== Training (confidential/year)
+=== Training (tbd/year)
 - Social media ethics workshops
 - Platform policy webinars
 
-=== Union Licensing (£15k/year)
-- TUC unions: confidential/year
-- International unions: confidential/year
+=== Union Licensing (nil/year)
+- TUC unions: nil/year
+- International unions: nil/year
 
-=== API Access (confidential/year)
+=== API Access (nil/year)
 - Platform change webhooks
 - Historical policy data
 
@@ -302,7 +302,7 @@ cd services/dashboard && mix test
 
 == 📞 Support
 
-- *Issues*: [GitHub Issues](https://github.com/Hyperpolymath/social-media-dipstick/issues)
+- *Issues*: [GitHub Issues](https://github.com/Hyperpolymath/social-media-litmus/issues)
 - *Emergency*: [Emergency contact TBD]
 
 == 📄 License
